@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "brand": "Chornomormontazh",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contacts": "Contacts",
+    "cta": "Enquire",
+    "menu": "Menu"
+  },
+  "meta": {
+    "title": "LLC Chornomormontazh — industrial engineering since 1997",
+    "description": "Design, construction, on-site repair, and an in-house destructive and non-destructive testing laboratory in Odesa. Full-cycle industrial work since 1997."
+  },
+  "home": {
+    "eyebrow": "Odesa · since 1997",
+    "heroTitle": "Industrial engineering you can trust since 1997",
+    "heroSubtitle": "We design, install, repair, and inspect industrial facilities. From working drawings to laboratory reports — one contractor, one line of accountability.",
+    "ctaServices": "Services",
+    "ctaContact": "Contact us",
+    "stats": {
+      "year": "Established",
+      "city": "Base",
+      "cityValue": "Odesa",
+      "cycle": "Scope",
+      "cycleValue": "Design → install → inspect",
+      "lab": "Laboratory",
+      "labValue": "In-house DNDT"
+    },
+    "servicesEyebrow": "Capabilities",
+    "servicesTitle": "Four disciplines, one cycle",
+    "servicesLead": "Not isolated subcontracts, but a continuous chain: documentation, installation, on-site repair, and laboratory quality control.",
+    "services": {
+      "design": "Design works",
+      "construction": "Construction & installation",
+      "repair": "On-site repair",
+      "lab": "DNDT laboratory"
+    },
+    "whyEyebrow": "Trust",
+    "whyTitle": "Why clients choose Chornomormontazh",
+    "why": {
+      "experience": "Proven on demanding plants",
+      "experienceDesc": "Operating since 1997. Heirs to the Chornomorpromsantekhmontazh trust — industrial installation, not generic fit-out.",
+      "quality": "Verified in our own laboratory",
+      "qualityDesc": "Destructive and non-destructive methods, protocols of established form. Quality is documented, not declared.",
+      "team": "Engineers, NDT specialists, welders",
+      "teamDesc": "A team that covers design, installation, diagnostics, and certification — the same standard of responsibility at every stage."
+    },
+    "clientsEyebrow": "Sites",
+    "clientsTitle": "Trusted where the cost of error is high",
+    "ctaBandTitle": "Tell us about the facility",
+    "ctaBandText": "A short brief is enough. We will come back with a proposed scope and timeline.",
+    "ctaBandButton": "Write to us"
+  },
+  "about": {
+    "title": "About the company",
+    "subtitle": "Industrial construction, installation, and technical diagnostics. Odesa and regions of Ukraine.",
+    "eyebrow": "Heritage",
+    "heritageTitle": "A trust’s discipline, a company’s accountability",
+    "heritage": "The company has operated since 1997. We were founded on the legacy of the Chornomorpromsantekhmontazh trust and kept its industrial culture: schedule discipline, engineering precision, respect for safety codes. Clients in Odesa and across Ukraine need a contractor they can entrust with a boiler, a crane, a pipeline, and a weld — that is the work we have done for decades.",
+    "missionTitle": "Mission",
+    "mission": "To build and maintain industrial infrastructure so the client receives a verified result, not a promise: from the drawing to the laboratory protocol.",
+    "valuesTitle": "Principles",
+    "values": {
+      "precision": { "title": "Precision", "text": "Calculation, tolerance, protocol. Work is complete when it is evidenced." },
+      "continuity": { "title": "Full cycle", "text": "Design, installation, repair, inspection, and certification — without a gap in responsibility between contractors." },
+      "site": { "title": "On the client’s site", "text": "Repair and diagnostics where the equipment stands. Less dismantling, less downtime." }
+    },
+    "capabilitiesTitle": "What we deliver in-house",
+    "capabilities": [
+      "Project development",
+      "Construction, installation, and commissioning",
+      "Repair of buildings and equipment",
+      "Quality control of materials and welds (destructive and non-destructive)",
+      "Electrical measurements up to 1000 V",
+      "Expert assessment and technical diagnostics",
+      "Maintenance of equipment, automation, and measuring instruments",
+      "Welder certification"
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Industrial design, installation, repair, and laboratory control — under a single line of responsibility.",
+    "overviewEyebrow": "Approach",
+    "overviewTitle": "One contractor for the engineering cycle",
+    "overview": "LLC Chornomormontazh takes industrial and civil facilities from working documentation through commissioning and ongoing inspection. Below are the four core disciplines; we also provide equipment servicing, expert examinations, and welder certification.",
+    "moreTitle": "Related capabilities"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Modernization, repair, and inspection for enterprises where safety is not a formality.",
+    "overview": "We work with oil products, port infrastructure, lifting machinery, and process installation. Each case below is a real client and a defined scope of work."
+  },
+  "contacts": {
+    "title": "Contacts",
+    "subtitle": "Describe the task — we will reply with a proposed scope and timeline.",
+    "intro": "Office in Odesa. We work on sites in the city and across Ukraine.",
+    "address": "65007, Odesa, 98 Mechnikova St",
+    "formTitle": "Enquiry",
+    "formLead": "Fields marked with an asterisk are required. Phone is optional, to clarify details faster.",
+    "name": "Name *",
+    "email": "Email *",
+    "phone": "Phone",
+    "message": "Message *",
+    "send": "Send",
+    "sending": "Sending…",
+    "success": "Thank you. Your message has been sent — we will reply shortly.",
+    "error": "Could not send. Please try again or write to office@chm.in.ua.",
+    "map": "How to find us",
+    "validation": {
+      "name": "Please enter a name (at least 2 characters).",
+      "email": "Please enter a valid email address.",
+      "message": "Please describe the task in at least 10 characters."
+    }
+  },
+  "footer": {
+    "blurb": "Industrial design, installation, repair, and laboratory control. Odesa, since 1997.",
+    "navTitle": "Navigate",
+    "contactsTitle": "Contact",
+    "copyright": "© {year} LLC Chornomormontazh. All rights reserved."
+  }
+}

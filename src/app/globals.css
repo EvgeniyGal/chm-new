@@ -1,26 +1,127 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #00324f;
+  --navy-dark: #001c2e;
+  --gold: #ffa902;
+  --gold-soft: #ffc44d;
+  --cream: #f7f4ee;
+  --cream-deep: #efe8d8;
+  --ink: #1a2a33;
+  --muted: #5c6b75;
+  --background: #f7f4ee;
+  --foreground: #00324f;
+  --card: #ffffff;
+  --card-foreground: #00324f;
+  --popover: #ffffff;
+  --popover-foreground: #00324f;
+  --primary: #ffa902;
+  --primary-foreground: #00324f;
+  --secondary: #00324f;
+  --secondary-foreground: #f7f4ee;
+  --muted-bg: #efe8d8;
+  --muted-foreground: #5c6b75;
+  --accent: #00324f;
+  --accent-foreground: #ffa902;
+  --destructive: #b42318;
+  --border: color-mix(in srgb, #00324f 12%, transparent);
+  --input: color-mix(in srgb, #00324f 16%, transparent);
+  --ring: #ffa902;
+  --radius: 0.75rem;
 }
 
 @theme inline {
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-ink: var(--ink);
+  --color-muted-text: var(--muted);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted-bg);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-cormorant);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 40%, transparent);
+  color: var(--navy-dark);
+}
+
+.font-display {
+  font-family: var(--font-cormorant), serif;
+}
+
+.gold-rule {
+  height: 1px;
+  width: 4.5rem;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.gold-rule-center {
+  height: 1px;
+  width: 5rem;
+  margin-inline: auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
 }
