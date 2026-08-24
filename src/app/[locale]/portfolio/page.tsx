@@ -1,19 +1,40 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { portfolio } from "@/content/portfolio";
 import { resolveLocale } from "@/i18n/routing";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const t = await getTranslations({ locale, namespace: "seo.portfolio" });
+  const siteName =
+    locale === "en" ? "LLC Chornomormontazh" : "ТОВ «Чорномормонтаж»";
+
+  return buildPageMetadata({
+    locale,
+    path: "/portfolio",
+    title: t("title"),
+    description: t("description"),
+    keywords: t.raw("keywords") as string[],
+    image: "/images/portfolio-hero.jpg",
+    siteName,
+  });
+}
 
 export default async function PortfolioPage({ params }: Props) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   setRequestLocale(locale);
   const t = await getTranslations("portfolio");
+  const tSeo = await getTranslations("seo.portfolio");
   const loc = locale;
 
   return (
@@ -22,6 +43,7 @@ export default async function PortfolioPage({ params }: Props) {
         image="/images/portfolio-hero.jpg"
         title={t("title")}
         subtitle={t("subtitle")}
+        imageAlt={tSeo("imageAlt")}
       />
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeading description={t("overview")} title={t("title")} />

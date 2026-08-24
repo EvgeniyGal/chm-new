@@ -13,6 +13,71 @@
     "title": "LLC Chornomormontazh — industrial engineering since 1997",
     "description": "Design, construction, on-site repair, and an in-house destructive and non-destructive testing laboratory in Odesa. Full-cycle industrial work since 1997."
   },
+  "seo": {
+    "home": {
+      "title": "LLC Chornomormontazh — industrial engineering since 1997",
+      "description": "Design, construction, on-site repair, and an in-house DNDT laboratory in Odesa. Full-cycle industrial work for plants and ports since 1997.",
+      "keywords": [
+        "Chornomormontazh",
+        "industrial installation Odesa",
+        "design works",
+        "DNDT laboratory",
+        "construction and installation"
+      ],
+      "imageAlt": "Industrial Black Sea port and steel structures at golden hour"
+    },
+    "about": {
+      "title": "About the company",
+      "description": "LLC Chornomormontazh continues the Chornomorpromsantekhmontazh trust legacy. Industrial construction, installation, and diagnostics in Odesa since 1997.",
+      "keywords": [
+        "about Chornomormontazh",
+        "Chornomorpromsantekhmontazh",
+        "industrial construction Odesa",
+        "technical diagnostics"
+      ],
+      "imageAlt": "Industrial engineering infrastructure on site"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Industrial design, installation, on-site repair, and destructive and non-destructive testing — one contractor, one line of responsibility.",
+      "keywords": [
+        "design works",
+        "construction and installation",
+        "equipment repair",
+        "non-destructive testing",
+        "DNDT laboratory Odesa"
+      ],
+      "imageAlt": "Construction and installation work at an industrial facility",
+      "serviceAlts": {
+        "design": "Engineering design and working documentation",
+        "construction": "Construction and installation at an industrial site",
+        "repair": "On-site repair of industrial equipment",
+        "lab": "Destructive and non-destructive testing laboratory"
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Case studies in modernization, repair, and inspection for oil products, port infrastructure, and process installation across Ukraine.",
+      "keywords": [
+        "Chornomormontazh portfolio",
+        "equipment modernization",
+        "weld inspection",
+        "industrial sites Odesa"
+      ],
+      "imageAlt": "Industrial facility and process equipment"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "Contact LLC Chornomormontazh in Odesa at 98 Mechnikova St. Phone, email, and enquiry form for industrial projects.",
+      "keywords": [
+        "Chornomormontazh contacts",
+        "Mechnikova 98 Odesa",
+        "office@chm.in.ua",
+        "industrial contractor Odesa"
+      ],
+      "imageAlt": "Company office and contact point in Odesa"
+    }
+  },
   "home": {
     "eyebrow": "Odesa · since 1997",
     "heroTitle": "Industrial engineering you can trust since 1997",

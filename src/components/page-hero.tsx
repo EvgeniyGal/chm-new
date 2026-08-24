@@ -4,16 +4,18 @@ export function PageHero({
   image,
   title,
   subtitle,
+  imageAlt,
 }: {
   image: string;
   title: string;
   subtitle?: string;
+  imageAlt: string;
 }) {
   return (
     <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden">
       <Image
         src={image}
-        alt=""
+        alt={imageAlt}
         fill
         priority
         className="object-cover"

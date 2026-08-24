@@ -1,18 +1,39 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { resolveLocale } from "@/i18n/routing";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const t = await getTranslations({ locale, namespace: "seo.about" });
+  const siteName =
+    locale === "en" ? "LLC Chornomormontazh" : "ТОВ «Чорномормонтаж»";
+
+  return buildPageMetadata({
+    locale,
+    path: "/about",
+    title: t("title"),
+    description: t("description"),
+    keywords: t.raw("keywords") as string[],
+    image: "/images/about.jpg",
+    siteName,
+  });
+}
 
 export default async function AboutPage({ params }: Props) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   setRequestLocale(locale);
   const t = await getTranslations("about");
+  const tSeo = await getTranslations("seo.about");
   const capabilities = t.raw("capabilities") as string[];
 
   return (
@@ -21,6 +42,7 @@ export default async function AboutPage({ params }: Props) {
         image="/images/about.jpg"
         title={t("title")}
         subtitle={t("subtitle")}
+        imageAlt={tSeo("imageAlt")}
       />
 
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -35,7 +57,7 @@ export default async function AboutPage({ params }: Props) {
           <div className="relative min-h-[360px] overflow-hidden rounded-2xl">
             <Image
               src="/images/about.jpg"
-              alt=""
+              alt={tSeo("imageAlt")}
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"

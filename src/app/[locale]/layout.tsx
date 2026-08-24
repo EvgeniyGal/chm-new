@@ -6,9 +6,11 @@ import { resolveLocale, routing } from "@/i18n/routing";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { organizationJsonLd, siteUrl } from "@/lib/seo";
 
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600"],
   variable: "--font-manrope",
   display: "swap",
 });
@@ -33,12 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const t = await getTranslations({ locale, namespace: "meta" });
-  const languages = {
-    uk: "/uk",
-    en: "/en",
-  };
 
   return {
+    metadataBase: new URL(siteUrl),
     title: {
       default: t("title"),
       template:
@@ -47,9 +46,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           : "%s · ТОВ «Чорномормонтаж»",
     },
     description: t("description"),
-    alternates: {
-      canonical: `/${locale}`,
-      languages,
+    openGraph: {
+      type: "website",
+      siteName:
+        locale === "en" ? "LLC Chornomormontazh" : "ТОВ «Чорномормонтаж»",
+      locale: locale === "uk" ? "uk_UA" : "en_US",
     },
   };
 }
@@ -60,6 +61,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const jsonLd = organizationJsonLd(locale);
 
   return (
     <html
@@ -68,6 +70,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${manrope.variable} ${cormorant.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-cream font-sans text-navy">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">{children}</main>

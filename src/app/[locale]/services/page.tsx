@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/page-hero";
@@ -10,17 +11,38 @@ import {
 } from "@/components/ui/accordion";
 import { extraCapabilities, serviceDetails, services } from "@/content/services";
 import { resolveLocale } from "@/i18n/routing";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const t = await getTranslations({ locale, namespace: "seo.services" });
+  const siteName =
+    locale === "en" ? "LLC Chornomormontazh" : "ТОВ «Чорномормонтаж»";
+
+  return buildPageMetadata({
+    locale,
+    path: "/services",
+    title: t("title"),
+    description: t("description"),
+    keywords: t.raw("keywords") as string[],
+    image: "/images/services/construction.jpg",
+    siteName,
+  });
+}
 
 export default async function ServicesPage({ params }: Props) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   setRequestLocale(locale);
   const t = await getTranslations("services");
+  const tSeo = await getTranslations("seo.services");
   const loc = locale;
+  const serviceAlts = tSeo.raw("serviceAlts") as Record<string, string>;
 
   return (
     <>
@@ -28,6 +50,7 @@ export default async function ServicesPage({ params }: Props) {
         image="/images/services/construction.jpg"
         title={t("title")}
         subtitle={t("subtitle")}
+        imageAlt={tSeo("imageAlt")}
       />
 
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -51,7 +74,7 @@ export default async function ServicesPage({ params }: Props) {
                 >
                   <Image
                     src={service.image}
-                    alt=""
+                    alt={serviceAlts[service.id] ?? detail.title[loc]}
                     fill
                     className="object-cover"
                     sizes="(min-width: 1024px) 50vw, 100vw"
