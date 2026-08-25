@@ -10,7 +10,8 @@ const schema = z.object({
   email: z.string().trim().email(),
   phone: z.string().trim().optional(),
   message: z.string().trim().min(10),
-  website: z.string().optional(),
+  // Honeypot — must stay empty. Do not name this "website" (browsers autofill it).
+  company_url_hp: z.string().optional(),
 });
 
 export type ContactResult = {
@@ -27,14 +28,14 @@ export async function sendContactMessage(
     email: formData.get("email"),
     phone: formData.get("phone") || undefined,
     message: formData.get("message"),
-    website: formData.get("website") || "",
+    company_url_hp: formData.get("company_url_hp") || "",
   });
 
   if (!parsed.success) {
     return { success: false, error: "validation" };
   }
 
-  if (parsed.data.website) {
+  if (parsed.data.company_url_hp) {
     return { success: true };
   }
 
@@ -42,9 +43,16 @@ export async function sendContactMessage(
   const domain = process.env.MAILGUN_DOMAIN?.trim();
   const from = process.env.MAILGUN_FROM?.trim();
   const to = process.env.CONTACT_TO_EMAIL?.trim() || site.email;
+  const apiUrl =
+    process.env.MAILGUN_API_URL?.trim() || "https://api.mailgun.net";
 
   if (!apiKey || !domain || !from) {
     console.error("Mailgun is not configured: missing MAILGUN_API_KEY, MAILGUN_DOMAIN, or MAILGUN_FROM");
+    return { success: false, error: "config" };
+  }
+
+  if (from.includes("your-mailgun-domain") || from.includes("your-verified-mailgun-domain")) {
+    console.error("Mailgun MAILGUN_FROM still uses a placeholder domain");
     return { success: false, error: "config" };
   }
 
@@ -52,7 +60,7 @@ export async function sendContactMessage(
 
   try {
     const mailgun = new Mailgun(MailgunFormData);
-    const client = mailgun.client({ username: "api", key: apiKey });
+    const client = mailgun.client({ username: "api", key: apiKey, url: apiUrl });
 
     await client.messages.create(domain, {
       from,

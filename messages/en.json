@@ -172,6 +172,8 @@
     "sending": "Sending…",
     "success": "Thank you. Your message has been sent — we will reply shortly.",
     "error": "Could not send. Please try again or write to office@chm.in.ua.",
+    "errorConfig": "The form is not configured for sending yet (Mailgun). Please write to office@chm.in.ua.",
+    "errorValidation": "Please check the fields and try again.",
     "map": "How to find us",
     "validation": {
       "name": "Please enter a name (at least 2 characters).",

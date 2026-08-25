@@ -26,7 +26,7 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-dark/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-dark">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 text-cream">
           <Logo size={46} />

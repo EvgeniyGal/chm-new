@@ -30,6 +30,10 @@ export function ContactForm() {
   useEffect(() => {
     if (state.success) {
       toast.success(t("success"));
+    } else if (state.error === "config") {
+      toast.error(t("errorConfig"));
+    } else if (state.error === "validation") {
+      toast.error(t("errorValidation"));
     } else if (state.error) {
       toast.error(t("error"));
     }
@@ -55,9 +59,14 @@ export function ContactForm() {
         <Label htmlFor="message">{t("message")}</Label>
         <Textarea id="message" name="message" required minLength={10} />
       </div>
-      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
-        <label htmlFor="website">Website</label>
-        <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="company_url_hp">Company URL</label>
+        <input
+          id="company_url_hp"
+          name="company_url_hp"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
       <SubmitButton />
     </form>
