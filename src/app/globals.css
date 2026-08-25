@@ -70,12 +70,47 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--navy-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
+}
+
+/* Branded scrollbar — WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  border-radius: 999px;
+  border: 2px solid var(--navy-dark);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd27a, var(--gold-soft));
+  border: 2px solid var(--navy-dark);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--navy-dark);
 }
 
 ::selection {
