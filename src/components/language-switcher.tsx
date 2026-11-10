@@ -49,7 +49,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             aria-current={active ? "true" : undefined}
             aria-label={code === "uk" ? "Українська" : "English"}
             className={cn(
-              "flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold tracking-wider transition-all",
+              "flex cursor-pointer items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold tracking-wider transition-all",
               active
                 ? "border-gold bg-gold/15 text-gold"
                 : "border-white/15 text-cream/70 hover:border-gold/50 hover:text-gold",

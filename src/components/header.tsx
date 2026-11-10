@@ -35,13 +35,13 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium tracking-wide transition-colors",
+                "rounded-md px-3 py-2 text-sm font-medium tracking-wide transition-colors",
                 isActive(item.href)
                   ? "text-gold"
                   : "text-cream/75 hover:text-gold",
